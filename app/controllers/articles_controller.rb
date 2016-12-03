@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  include AutoInject[create_article: 'commands.article.create']
+  include AutoInject[create_article: 'commands.article.create',
+                     find_article: 'commands.article.find']
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
 
@@ -66,7 +67,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = find_article.(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
