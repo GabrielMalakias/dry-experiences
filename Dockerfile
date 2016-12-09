@@ -4,8 +4,8 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
 RUN mkdir -p /var/www/experiences
 
-ADD ./Gemfile /var/www/experiences
 ADD ./Gemfile.lock /var/www/experiences
+ADD ./Gemfile /var/www/experiences
 
 WORKDIR /var/www/experiences
 
